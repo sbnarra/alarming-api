@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+# 1. generate go server stubs - https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/go-server.md
+# 2. remove github reference from main.go to only reference local file and move into cmd directory
+# 3. update reference to moved file in dockerfile and move to build/package directory
+
+cd "$(dirname $0)/../.." && \
+  $(dirname $0)/openapi-cli generate \
+    --git-repo-id alarming-api --git-user-id sbnarra \
+    -i /local/api/openapi-spec.yaml -c /local/scripts/openapi/configs/openapi-go-server.yaml && \
+  docker run -v ${PWD}:/go/src --rm golang:1.16.2 sh -c "go get golang.org/x/tools/cmd/goimports && goimports -w src" && \
+  sed -i '' 's/\.\/pkg\/generated\/server/\.\/github.com\/sbnarra\/alarming-api\/pkg\/generated\/server/g' Dockerfile && \
+  mkdir -p cmd && mv main.go cmd/. && sed -i '' 's/COPY main.go/COPY cmd\/main.go/g' Dockerfile && \
+  mkdir -p build/package && mv Dockerfile build/package/.
+  mkdir -p build/package && mv api/openapi.yaml api/compiled/openapi.yaml

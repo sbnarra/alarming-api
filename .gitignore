@@ -1,0 +1,4 @@
+.openapi-generator
+docs/.openapi-generator
+.idea
+tmp

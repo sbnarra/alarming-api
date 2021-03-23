@@ -1,0 +1,3 @@
+api/openapi.yaml
+pkg/generated/server/api_default_service.go
+README.md

@@ -1,0 +1,57 @@
+openapi: 3.0.3
+info:
+  title: Alarming
+  version: 0.0.1
+  description: "Alarming API"
+servers:
+  - url: http://localhost
+paths:
+  /alarms:
+    get:
+      operationId: listAlarms
+      description: list alarms
+      responses:
+        "200":
+          description: list of alarms
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AlarmList'
+    post:
+      operationId: createAlarm
+      description: a new alarm
+      requestBody:
+        description: alarm to schedule
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewAlarm'
+      responses:
+        "200":
+          description: an alarm
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Alarm'
+components:
+  schemas:
+    NewAlarm:
+      example:
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+      type: object
+    Alarm:
+      example:
+        id: 046b6c7f-0b8a-43b9-b35d-6489e6daee91
+      properties:
+        id:
+          format: uuid
+          type: string
+      type: object
+    AlarmList:
+      type: array
+      items:
+        $ref: '#/components/schemas/Alarm'

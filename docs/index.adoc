@@ -1,0 +1,236 @@
+= Alarming
+team@openapitools.org
+0.0.1
+:toc: left
+:numbered:
+:toclevels: 3
+:source-highlighter: highlightjs
+:keywords: openapi, rest, Alarming 
+:specDir: 
+:snippetDir: 
+:generator-template: v1 2019-12-20
+:info-url: https://openapi-generator.tech
+:app-name: Alarming
+
+[abstract]
+.Abstract
+Alarming API
+
+
+// markup not found, no include::{specDir}intro.adoc[opts=optional]
+
+
+
+== Endpoints
+
+
+[.Default]
+=== Default
+
+
+[.createAlarm]
+==== createAlarm
+    
+`POST /alarms`
+
+
+
+===== Description 
+
+a new alarm
+
+
+// markup not found, no include::{specDir}alarms/POST/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+====== Body Parameter
+
+[cols="2,3,1,1,1"]
+|===         
+|Name| Description| Required| Default| Pattern
+
+| NewAlarm 
+| alarm to schedule <<NewAlarm>> 
+| - 
+|  
+|  
+
+|===         
+
+
+
+
+
+===== Return Type
+
+<<Alarm>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| an alarm
+|  <<Alarm>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}alarms/POST/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}alarms/POST/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :alarms/POST/POST.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}alarms/POST/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[.listAlarms]
+==== listAlarms
+    
+`GET /alarms`
+
+
+
+===== Description 
+
+list alarms
+
+
+// markup not found, no include::{specDir}alarms/GET/spec.adoc[opts=optional]
+
+
+
+===== Parameters
+
+
+
+
+
+
+
+===== Return Type
+
+<<AlarmList>>
+
+
+===== Content Type
+
+* application/json
+
+===== Responses
+
+.http response codes
+[cols="2,3,1"]
+|===         
+| Code | Message | Datatype 
+
+
+| 200
+| list of alarms
+|  <<AlarmList>>
+
+|===         
+
+===== Samples
+
+
+// markup not found, no include::{snippetDir}alarms/GET/http-request.adoc[opts=optional]
+
+
+// markup not found, no include::{snippetDir}alarms/GET/http-response.adoc[opts=optional]
+
+
+
+// file not found, no * wiremock data link :alarms/GET/GET.json[]
+
+
+ifdef::internal-generation[]
+===== Implementation
+
+// markup not found, no include::{specDir}alarms/GET/implementation.adoc[opts=optional]
+
+
+endif::internal-generation[]
+
+
+[#models]
+== Models
+
+
+[#Alarm]
+=== _Alarm_ 
+
+
+
+[.fields-Alarm]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| id 
+|  
+| UUID  
+| 
+| uuid 
+
+|===
+
+
+[#AlarmList]
+=== _AlarmList_ 
+
+
+
+[.fields-AlarmList]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+|===
+
+
+[#NewAlarm]
+=== _NewAlarm_ 
+
+
+
+[.fields-NewAlarm]
+[cols="2,1,2,4,1"]
+|===         
+| Field Name| Required| Type| Description| Format
+
+| id 
+|  
+| UUID  
+| 
+| uuid 
+
+|===
+
+

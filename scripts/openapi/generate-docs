@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+$(dirname $0)/openapi-cli generate -c /local/scripts/openapi/configs/openapi-asciidoc-docs.yaml
+$(dirname $0)/openapi-cli generate -c /local/scripts/openapi/configs/openapi-markdown-docs.yaml

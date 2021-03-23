@@ -1,0 +1,4 @@
+generatorName: asciidoc
+outputDir: /local/docs
+additionalProperties:
+  generateAliasAsModel: "true"

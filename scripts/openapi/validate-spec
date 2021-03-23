@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd "$(dirname $0)/../.." && \
+  docker run -e --rm -v ${PWD}:/local openapitools/openapi-generator-cli validate -i /local/api/openapi-spec.yaml

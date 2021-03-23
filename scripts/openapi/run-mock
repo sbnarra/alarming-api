@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+# https://github.com/JustinFeng/fakeit
+# https://hub.docker.com/r/realfengjia/fakeit
+
+cd "$(dirname $0)/../.." && \
+  docker run --rm -v "${PWD}":/home -t -p 8081:8080 realfengjia/fakeit:latest --spec /home/api/openapi-spec.yaml

@@ -1,0 +1,8 @@
+# https://github.com/OpenAPITools/openapi-generator/blob/master/docs/generators/go-server.md
+generatorName: go-server
+outputDir: /local
+enablePostProcessFile: true
+additionalProperties:
+  packageName: alarming
+  packageVersion: 0.0.1
+  sourceFolder: pkg/generated/server
